@@ -8,4 +8,7 @@ db.Test.find({interests:{$all:["Reading","Travelling","Gaming"]}}).project({inte
 // আছে কেবল  সেই এ্যারে গুলো দাও
 db.Test.find({ "interests.2": "Cooking" }).project({ interests: 1 })
 
+//নিচে Skill নামক প্রোপার্টি থেকে name:"JAVASCRIPT",level:"Intermidiate" যত গুলো data
+//পাও সব নিয়ে আসো
+db.Test.find({skills:{$elemMatch: {name:"JAVASCRIPT",level:"Intermidiate"}}}).project({skills:1})
 
