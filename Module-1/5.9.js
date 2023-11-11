@@ -13,4 +13,18 @@ db.Test.updateOne(
         {$pop: {interests:1}
         }
         )
+),
+    
+//কোন এ্যারের মধ্য থেকে নির্দ্রিষ্ট কোন ডাটা   ডিলেট করতে এই ম্যথেট ব্যবহার করতে হয়।
+    
+db.Test.updateOne(
+    {"_id" : ObjectId("6406ad63fc13ae5a40000065")},
+    {$pull: {friends:"Tanmoy Parvez"}
+    }
+    )
+// একটা এ্যারে থেকে অনেক ডাটা বের করতে  এই ম্যথট ব্যবহার হয়
+db.Test.updateOne(
+    {"_id" : ObjectId("6406ad63fc13ae5a40000065")},
+    {$pullAll: {friends:"Tanmoy Parvez"}
+    }
     )
